@@ -65,5 +65,5 @@ https://docs.google.com/spreadsheets/d/1o-h2bOikotdQr9saCEJ1V_Ikyod86qd2UWeH33FV
 - 任天堂様　https://www.nintendo.co.jp/networkservice_guideline/ja/index.html
 - Riot Games様　https://www.riotgames.com/ja/legal
 - Hatchful様（サイトロゴ）
-　- https://hatchful.shopify.com/ja/
+　 https://hatchful.shopify.com/ja/
 
