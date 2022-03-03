@@ -1,5 +1,4 @@
 # _ConStrateGame_
-URL: ここに出来上がったURLを貼る
 
 ## サイト概要  
 
