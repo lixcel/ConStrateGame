@@ -1,0 +1,56 @@
+<header>
+  <nav class="navbar">
+    <div class="ml-5">
+      <nav class="nav navbar-nav navbar-left">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', size: "100x100",class: "rounded-circle" %>
+        <% end %>
+      </nav>
+    </div>
+
+    <div class="nav navbar-nav navbar-right">
+      <ul>
+        <% if user_signed_in? %>
+
+        <button>
+          <%= link_to new_user_session_path,class: "nav-link disabled" do %>
+          <i class="fa-regular fa-chess-queen"></i>ログイン
+          <% end %>
+        </button>
+        <button>
+          test
+        </button>
+        <button>
+
+        </button>
+
+        <button>
+
+        </button>
+
+        <% else %>
+        <div class="btn">
+          <%= link_to new_user_session_path,class: "nav-link text-dark" do %>
+          <i class="fa-regular fa-chess-queen"></i>ログイン
+          <% end %>
+        </div>
+        <div class="btn">
+          <%= link_to new_user_registration_path,class: "nav-link text-dark" do %>
+          <i class="fa-regular fa-chess-king"></i>会員登録
+          <% end %>
+        </div>
+
+        <div class="btn">
+
+        </div>
+
+        <div class="btn">
+
+        </div>
+        <% end %>
+      </ul>
+    </div>
+
+
+  </nav>
+</header>
