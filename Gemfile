@@ -59,3 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # ページネーション
 gem 'kaminari'
+# 管理者
+gem 'activeadmin'
