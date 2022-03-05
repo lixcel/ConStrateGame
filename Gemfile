@@ -61,3 +61,9 @@ gem 'devise'
 gem 'kaminari'
 # 管理者
 gem 'activeadmin'
+# enum追加
+gem 'enum_help'
+
+# 日本語化用
+gem 'rails-i18n'
+gem 'devise-i18n'

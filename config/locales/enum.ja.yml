@@ -1,0 +1,6 @@
+ja:
+  enums:
+    post:
+      kind:
+        strategy: "攻略"
+        consideration: "考察"

@@ -1,20 +1,46 @@
 ActiveAdmin.register Post do
+  permit_params :title, :body, :rate, :kind
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :title, :body, :rate, :user_id, :tag_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:title, :body, :rate, :user_id, :tag_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  filter :title
+  filter :kind
 
-  permit_params :title, :body, :rate
+  index do
+    selectable_column
+    column(:id)
+    column(:user_id)
+    column(:title)
+    column(:body)
+    column(:kind) do |post|
+      post.kind_i18n
+    end
+    column(:created_at)
+    column(:updated_at)
+    actions
+  end
+
+  show do
+    attributes_table do
+      row(:user_id)
+      row(:title)
+      row(:body)
+      row(:kind) do |post|
+        post.kind_i18n
+      end
+      row(:created_at)
+      row(:updated_at)
+    end
+    active_admin_comments
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :body
+      f.input :kind, as: :select, collection: Post.kinds_i18n.invert
+    end
+    f.actions
+  end
+
+
 
 end
