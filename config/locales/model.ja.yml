@@ -4,6 +4,7 @@ ja:
       admin_user: "管理者"
       comment: "コメント"
       post: "投稿"
+      tag: "タグ"
     attributes:
       admin_user:
         email: "メールアドレス"
@@ -17,5 +18,9 @@ ja:
         user_id: "会員id"
         tag_id: "タグid"
         kind: "投稿の種類"
+        created_at: "作成日"
+        updated_at: "更新日"
+      tag:
+        name: "タグ名"
         created_at: "作成日"
         updated_at: "更新日"
