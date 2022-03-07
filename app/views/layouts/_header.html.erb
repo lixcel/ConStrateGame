@@ -14,25 +14,25 @@
         <!--ログインしている時-->
 
         <div class="btn">
-          <%= link_to posts_path, class: "nav-link text-dark" do %>
+          <%= link_to posts_path, class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-solid fa-clipboard"></i>投稿一覧
           <% end %>
         </div>
 
         <div class="btn">
-          <%= link_to new_post_path, class: "nav-link text-dark" do %>
+          <%= link_to new_post_path, class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-solid fa-pen-to-square"></i>投稿する
           <% end %>
         </div>
 
         <div class="btn">
-          <%= link_to user_path(current_user), class: "nav-link text-dark" do %>
+          <%= link_to user_path(current_user), class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-solid fa-image-portrait"></i>マイページ
           <% end %>
          </div>
 
         <div class="btn">
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-solid fa-chess-queen"></i>ログアウト
           <% end %>
         </div>
@@ -41,18 +41,18 @@
         <!--ログインしていない時-->
 
         <div class="btn">
-          <%= link_to posts_path, class: "nav-link text-dark" do %>
+          <%= link_to posts_path, class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-regular fa-clipboard"></i>投稿一覧
           <% end %>
         </div>
 
         <div class="btn">
-          <%= link_to new_user_session_path,class: "nav-link text-dark" do %>
+          <%= link_to new_user_session_path,class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-regular fa-chess-queen"></i>ログイン
           <% end %>
         </div>
         <div class="btn">
-          <%= link_to new_user_registration_path,class: "nav-link text-dark" do %>
+          <%= link_to new_user_registration_path,class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-regular fa-chess-king"></i>会員登録
           <% end %>
         </div>
