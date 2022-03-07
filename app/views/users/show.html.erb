@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+    <h2 class="text-center">会員情報</h2>
+
+    <table class="table border text-center">
+
+
+      <tbody>
+        <tr>
+        <% if @user == current_user.id %>
+          <td><%= current_user.nickname %></td>
+        <% else %>
+          <td><%= @user.nickname %></td>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
