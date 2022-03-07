@@ -67,3 +67,6 @@ gem 'enum_help'
 # 日本語化用
 gem 'rails-i18n'
 gem 'devise-i18n'
+
+# 画像投稿用
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
