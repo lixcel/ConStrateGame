@@ -1,0 +1,22 @@
+    <div class="col-md-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">ゲーム名</th>
+          </tr>
+        </thead>
+
+        <% tags.each do |tag| %>
+          <tr>
+            <td>
+              <%= link_to tag_path(tag) do %>
+              <%= tag.name %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <tbody>
+        </tbody>
+
+      </table>
+    </div>
