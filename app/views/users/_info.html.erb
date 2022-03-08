@@ -10,7 +10,7 @@
         <tr>
           <td class="p-3">
           <% if current_user.image? %>
-          <%= image_tag current_user.image.url, size: '100x100',class: "rounded-circle" %>
+          <%= image_tag current_user.image.icon.url,class: "rounded-circle" %>
           <% else %>
           <%= image_tag 'no_image.jpeg', size: '100x100',class: "rounded-circle" %>
           <% end %>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
           <td>
-            <%= link_to edit_user_registration_path(current_user),class: "btn btn-dark text-decoration-none mt-3" do %>
+            <%= link_to edit_user_registration_path,class: "btn btn-dark text-decoration-none mt-3" do %>
             <div class="text-light"><i class="fa-solid fa-user-gear"></i>プロフィールの編集</div>
             <% end %>
           </td>
@@ -53,7 +53,7 @@
         <tr>
           <td class="p-3">
           <% if user.image? %>
-          <%= image_tag user.image.url, size: '100x100',class: "rounded-circle" %>
+          <%= image_tag user.image.icon.url, size: '100x100',class: "rounded-circle" %>
           <% else %>
           <%= image_tag 'no_image.jpeg', size: '100x100',class: "rounded-circle" %>
           <% end %>
@@ -61,6 +61,26 @@
         </tr>
        <tr>
           <td><%= user.nickname %></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex justify-content-center my-4">
+              <div>
+              投稿数<br>
+              <%= user.posts.count %>
+              </div>
+            <div class="px-4">
+              フォロー<br>
+              0
+            </div>
+            <div>
+              フォロワー<br>
+              0
+            </div>
+
+            </div>
+
+          </td>
         </tr>
         <tr>
           <td><%= user.introduction %></td>
