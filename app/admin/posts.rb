@@ -13,6 +13,7 @@ ActiveAdmin.register Post do
     column(:kind) do |post|
       post.kind_i18n
     end
+    column(:tag_id)
     column(:created_at)
     column(:updated_at)
     actions
@@ -26,6 +27,7 @@ ActiveAdmin.register Post do
       row(:kind) do |post|
         post.kind_i18n
       end
+      row(:tag_id)
       row(:created_at)
       row(:updated_at)
     end

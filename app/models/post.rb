@@ -5,8 +5,8 @@ class Post < ApplicationRecord
 
 
   enum kind:{
-    strategy: 0,
-    consideration: 1,
+    攻略: 0,
+    考察: 1,
   }
 
 end
