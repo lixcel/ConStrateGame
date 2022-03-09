@@ -13,6 +13,17 @@
       <%= f.label :body %><br>
       <%= f.text_area :body %>
     </div>
+    <div class="form-group">
+      <%= f.label :kind %><br>
+      <%= f.select :kind, [["攻略","攻略"],["考察","考察"]] %>
+    </div>
+    <div class="form-group">
+      <%= f.label :ゲーム名 %><br>
+      <%= f.collection_select :tag_id, Tag.all, :id, :name, prompt: "ゲーム名を選んでください" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "投稿する" %>
+    </div>
     <% end %>
   </div>
 </div>
