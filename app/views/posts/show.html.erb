@@ -1,2 +1,11 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>投稿詳細</h1>
+
+<div class="container">
+  <% if @post.image? %>
+  <%= image_tag @post.image.url, size: '600x300' %><br>
+  <% end %>
+  <%= @post.title %><br>
+  <%= @post.body %><br>
+  <%= @tag_list%>
+
+</div>

@@ -1,8 +1,18 @@
 <h2>posts test</h2>
+
+<% @tag_list.each do |list| %>
+<%= list.name %>
+<%= "(#{list.posts.count})" %>
+<% end %>
+
+
 <ul>
   <% @posts.each do |post| %>
-  <li><%= post.title %> </li>
-  <li><%= post.body %></li>
+  <div>
+  <%= post.title %><br>
+  <%= post.body %><br>
+  <i class="fas fa-tag"><%= post.tags.map(&:name).join(',') %></i>
+  </div>
   <% end %>
 </ul>
 
