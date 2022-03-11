@@ -1,12 +1,19 @@
 class PostsController < ApplicationController
+
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.all
+  end
+
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
     @tag_list = Tag.all
   end
 
   def show
     @post = Post.find(params[:id])
-    @tag_list = @post.tags.pluck(:name).join(', ')
+    @post_tags = @post.tags
   end
 
   def new

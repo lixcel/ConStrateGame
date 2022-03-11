@@ -1,19 +1,16 @@
+<div class="container">
 <h2>posts test</h2>
 
-<% @tag_list.each do |list| %>
-<%= list.name %>
-<%= "(#{list.posts.count})" %>
-<% end %>
 
 
-<ul>
+
+
   <% @posts.each do |post| %>
   <div>
   <%= post.title %><br>
   <%= post.body %><br>
-  <i class="fas fa-tag"><%= post.tags.map(&:name).join(',') %></i>
+  <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
   </div>
   <% end %>
-</ul>
-
+</div>
 

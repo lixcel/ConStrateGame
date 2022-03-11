@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def top
-    @tags = Tag.all
+    @tag_list = Tag.all
+
   end
 end

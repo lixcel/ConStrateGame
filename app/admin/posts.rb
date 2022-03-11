@@ -13,7 +13,6 @@ ActiveAdmin.register Post do
     column(:kind) do |post|
       post.kind_i18n
     end
-    column(:tag_id)
     column(:created_at)
     column(:updated_at)
     actions
