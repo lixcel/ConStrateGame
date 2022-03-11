@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :tags, only: [:show]
+  resources :tags do
+    get 'posts', to: 'posts#search'
+  end
 
 end

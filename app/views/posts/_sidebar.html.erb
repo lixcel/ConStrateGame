@@ -1,22 +1,13 @@
-    <div class="col-md-2">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="text-center">ゲーム名</th>
-          </tr>
-        </thead>
+<div class="col-md-2">
+  <div class="text-center border font-weight-bold">
+    タグ一覧
+  </div>
+  <% tag_list.each do |list| %>
+  <div>
+    <i class="fas fa-tag"></i><%= link_to list.name, tag_posts_path(tag_id: list.id) %>
+    <%= "(#{list.posts.count})" %>
+  </div>
+  <% end %>
 
-        <% tags.each do |tag| %>
-          <tr>
-            <td>
-              <%= link_to tag_path(tag) do %>
-              <%= tag.name %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-        <tbody>
-        </tbody>
 
-      </table>
-    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <h2><%= @tag.name %>タグの記事一覧</h2>
+
+  <div class="row">
+  <%= render 'posts/sidebar', tag_list: @tag_list %>
+
+    <% @posts.each do |post| %>
+  <div class="col-md-6 offset-md-2">
+    <%= link_to post.title, post_path(post.id) %><br>
+    <%= post.body %><br>
+    <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+  </div>
+    <% end %>
+
+  </div>
+</div>
