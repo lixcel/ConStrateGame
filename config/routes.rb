@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     get 'posts', to: 'posts#search'
   end
 
+  get "search" => "searches#search"
+
 end
