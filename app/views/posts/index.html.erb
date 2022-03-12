@@ -5,7 +5,7 @@
 
 
   <% @posts.each do |post| %>
-  <div class="border shadow mb-2">
+  <div class="border shadow mb-2 b">
   <%= post.title %><br>
   <%= post.body %><br>
   <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
