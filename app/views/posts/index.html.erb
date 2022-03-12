@@ -5,11 +5,17 @@
 
 
   <% @posts.each do |post| %>
-  <div class="border shadow mb-2 b">
-  <%= post.title %><br>
-  <%= post.body %><br>
-  <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
-  </div>
+  <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 btn text-left">
+      <%= post.title %><br>
+      <%= post.body %><br>
+      <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+    </div>
   <% end %>
+  <% end %>
+
+  <%= paginate @posts %>
+
 </div>
+
 </div>

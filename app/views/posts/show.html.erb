@@ -2,7 +2,7 @@
 
 <div class="container">
   <% if @post.image? %>
-  <%= image_tag @post.image.url, size: '600x300' %><br>
+  <%= image_tag @post.image.show.url %><br>
   <% end %>
   <%= @post.title %><br>
   <%= @post.body %><br>
