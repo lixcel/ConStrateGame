@@ -1,0 +1,13 @@
+<div class="col-md-2">
+  <div class="text-center border font-weight-bold">
+    タグ一覧
+  </div>
+  <% tag_list.each do |list| %>
+  <div>
+    <i class="fas fa-tag"></i><%= link_to list.name, tag_posts_path(tag_id: list.id) %>
+    <%= "(#{list.posts.count})" %>
+  </div>
+  <% end %>
+
+
+</div>

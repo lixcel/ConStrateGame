@@ -1,0 +1,13 @@
+<h1>投稿詳細</h1>
+
+<div class="container">
+  <% if @post.image? %>
+  <%= image_tag @post.image.show.url %><br>
+  <% end %>
+  <%= @post.title %><br>
+  <%= @post.body %><br>
+  <% @post_tags.each do |tag| %>
+    <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
+    <%= "(#{tag.posts.count})" %>
+  <% end %>
+</div>

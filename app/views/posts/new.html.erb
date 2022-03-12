@@ -1,0 +1,31 @@
+<div class="container mt-3 bg-light">
+  <div class="row">
+    <%= form_with model: @post,url: posts_path, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :画像 %><br>
+      <%= f.file_field :image, class: "image" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
+    </div>
+    <div class="form-group">
+      <%= f.label :kind %><br>
+      <%= f.select :kind, [["攻略","攻略"],["考察","考察"]] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "タグ(, で区切ると複数タグを登録できます。)" %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "投稿する" %>
+    </div>
+    <% end %>
+  </div>
+</div>

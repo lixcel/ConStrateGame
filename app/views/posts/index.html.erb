@@ -1,0 +1,21 @@
+<div class="row m-3">
+  <%= render 'posts/sidebar', tag_list: @tag_list %>
+  <div class="col-md-8">
+<h2>posts test</h2>
+
+
+  <% @posts.each do |post| %>
+  <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 btn text-left">
+      <%= post.title %><br>
+      <%= post.body %><br>
+      <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+    </div>
+  <% end %>
+  <% end %>
+
+  <%= paginate @posts %>
+
+</div>
+
+</div>

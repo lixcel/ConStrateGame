@@ -1,4 +1,4 @@
-<header>
+<header class="border">
   <nav class="navbar">
     <div class="ml-5">
       <nav class="nav navbar-nav navbar-left">
@@ -11,42 +11,52 @@
     <div class="nav navbar-nav navbar-right">
       <ul>
         <% if user_signed_in? %>
+        <!--ログインしている時-->
 
-        <button>
-          <%= link_to new_user_session_path,class: "nav-link disabled" do %>
-          <i class="fa-regular fa-chess-queen"></i>ログイン
+        <div class="btn">
+          <%= link_to posts_path, class: "nav-link text-dark text-decoration-none" do %>
+          <i class="fa-solid fa-clipboard"></i>投稿一覧
           <% end %>
-        </button>
-        <button>
-          test
-        </button>
-        <button>
+        </div>
 
-        </button>
+        <div class="btn">
+          <%= link_to new_post_path, class: "nav-link text-dark text-decoration-none" do %>
+          <i class="fa-solid fa-pen-to-square"></i>投稿する
+          <% end %>
+        </div>
 
-        <button>
+        <div class="btn">
+          <%= link_to user_path(current_user), class: "nav-link text-dark text-decoration-none" do %>
+          <i class="fa-solid fa-image-portrait"></i>マイページ
+          <% end %>
+         </div>
 
-        </button>
+        <div class="btn">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark text-decoration-none" do %>
+          <i class="fa-solid fa-chess-queen"></i>ログアウト
+          <% end %>
+        </div>
 
         <% else %>
+        <!--ログインしていない時-->
+
         <div class="btn">
-          <%= link_to new_user_session_path,class: "nav-link text-dark" do %>
+          <%= link_to posts_path, class: "nav-link text-dark text-decoration-none" do %>
+          <i class="fa-regular fa-clipboard"></i>投稿一覧
+          <% end %>
+        </div>
+
+        <div class="btn">
+          <%= link_to new_user_session_path,class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-regular fa-chess-queen"></i>ログイン
           <% end %>
         </div>
         <div class="btn">
-          <%= link_to new_user_registration_path,class: "nav-link text-dark" do %>
+          <%= link_to new_user_registration_path,class: "nav-link text-dark text-decoration-none" do %>
           <i class="fa-regular fa-chess-king"></i>会員登録
           <% end %>
         </div>
 
-        <div class="btn">
-
-        </div>
-
-        <div class="btn">
-
-        </div>
         <% end %>
       </ul>
     </div>

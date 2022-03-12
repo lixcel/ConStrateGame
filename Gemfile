@@ -59,3 +59,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # ページネーション
 gem 'kaminari'
+# 管理者
+gem 'activeadmin'
+# enum追加
+gem 'enum_help'
+
+# 日本語化用
+gem 'rails-i18n'
+gem 'devise-i18n'
+
+# 画像投稿用
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
