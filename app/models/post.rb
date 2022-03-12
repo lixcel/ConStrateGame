@@ -31,4 +31,15 @@ class Post < ApplicationRecord
     end
   end
 
+  # 検索分岐
+  def self.looks(search, word)
+    if search == "forward_match"
+      @post = Post.where("title LIKE?","#{word}%")
+    elsif search == "partial_match"
+      @post = Post.where("title LIKE?","%#{word}%")
+    else
+      @post = Post.page(params[:page]).per(10)
+    end
+  end
+
 end

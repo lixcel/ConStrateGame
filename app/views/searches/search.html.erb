@@ -1,0 +1,30 @@
+<div class="row m-3">
+  <%= render 'posts/sidebar', tag_list: @tag_list %>
+  <div class="col-md-8">
+<h2>posts test</h2>
+
+<% if @range == "User" %>
+  <% @users.each do |user| %>
+  <%= link_to user_path(user.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 btn text-left">
+      <%= user.nickname %>
+    </div>
+  <% end %>
+  <% end %>
+  <%= paginate @users %>
+<% else %>
+  <% @posts.each do |post| %>
+  <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 btn text-left">
+      <%= post.title %><br>
+      <%= post.body %><br>
+      <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+    </div>
+  <% end %>
+  <% end %>
+    <%= paginate @posts %>
+<% end %>
+
+</div>
+
+</div>
