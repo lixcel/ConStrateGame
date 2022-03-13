@@ -11,6 +11,11 @@ class Post < ApplicationRecord
     考察: 1,
   }
 
+  # 並び替え用
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :old, -> {order(updated_at: :asc)}
+  
+
   def save_tag(sent_tags)
     # 元からあるタグならば、配列として取得
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
@@ -41,5 +46,7 @@ class Post < ApplicationRecord
       @post = Post.page(params[:page]).per(10)
     end
   end
+
+
 
 end

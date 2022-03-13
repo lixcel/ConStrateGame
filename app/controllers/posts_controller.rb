@@ -7,7 +7,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).per(10)
+    if params[:latest]
+      @posts = Post.latest.page(params[:page]).per(10)
+    elsif params[:old]
+      @posts = Post.old.page(params[:page]).per(10)
+    else
+      @posts = Post.page(params[:page]).per(10)
+    end
+
     @tag_list = Tag.all
   end
 
@@ -52,4 +59,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :image, :kind)
   end
+
+  def sort_params
+    params.permit(:sort)
+  end
+
 end
