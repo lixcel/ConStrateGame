@@ -4,12 +4,18 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
+  has_many :comments, dependent: :destroy
 
 
   enum kind:{
     攻略: 0,
     考察: 1,
   }
+
+  # 並び替え用
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :old, -> {order(updated_at: :asc)}
+  
 
   def save_tag(sent_tags)
     # 元からあるタグならば、配列として取得
@@ -41,5 +47,7 @@ class Post < ApplicationRecord
       @post = Post.page(params[:page]).per(10)
     end
   end
+
+
 
 end

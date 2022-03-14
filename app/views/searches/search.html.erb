@@ -1,7 +1,12 @@
 <div class="row m-3">
   <%= render 'posts/sidebar', tag_list: @tag_list %>
   <div class="col-md-8">
-<h2>posts test</h2>
+
+  <% if @range == "User" %>
+    <h2>ユーザー検索結果</h2>
+  <% else %>
+    <h2>投稿検索結果</h2>
+  <% end %>
 
 <% if @range == "User" %>
   <% @users.each do |user| %>
@@ -19,6 +24,9 @@
       <%= post.title %><br>
       <%= post.body %><br>
       <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+      <div class="text-right text-secondary">
+      投稿日:<%= l post.created_at %>
+      </div>
     </div>
   <% end %>
   <% end %>
