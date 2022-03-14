@@ -4,7 +4,8 @@ class User < ApplicationRecord
 
 mount_uploader :image, ImageUploader
 
-has_many :posts
+has_many :posts, dependent: :destroy
+has_many :comments
 
   # 検索分岐
   def self.looks(search, word)
