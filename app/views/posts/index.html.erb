@@ -14,7 +14,7 @@
       <%= post.body %><br>
       <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
       <div class="text-right text-secondary">
-      投稿日:<%= l post.created_at %>
+      <i class="fa-solid fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %>
       </div>
     </div>
   <% end %>

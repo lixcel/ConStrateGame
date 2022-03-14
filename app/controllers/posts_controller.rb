@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_tags = @post.tags
+    @comment = Comment.new
   end
 
   def new
@@ -34,7 +35,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post.save
       @post.save_tag(tag_list)
-      redirect_to post_path(@post),notice: '投稿完了！'
+      redirect_to post_path(@post)
     else
       render:new
     end
@@ -56,7 +57,7 @@ class PostsController < ApplicationController
         relation.delete
       end
       @post.save_tag(tag_list)
-      redirect_to post_path(@post.id), notice: '更新完了！'
+      redirect_to post_path(@post.id)
     else
       render :edit
     end
