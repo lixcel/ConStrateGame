@@ -1,6 +1,11 @@
+<div class="container mt-3">
 <h1>投稿詳細</h1>
 
-<div class="container">
+<div>
+  <p class="text-success"><%= flash[:notice] %></p>
+</div>
+
+<div>
   <% if @post.image? %>
   <%= image_tag @post.image.show.url %><br>
   <% end %>
@@ -10,4 +15,10 @@
     <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
     <%= "(#{tag.posts.count})" %>
   <% end %>
+
+  <% if @post.user_id == current_user.id %>
+  <%= link_to "編集する", edit_post_path(@post.id) %>
+  <%= link_to "削除する", post_path, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <% end %>
+</div>
 </div>

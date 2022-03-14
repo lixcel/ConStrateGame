@@ -41,17 +41,31 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
     @post = Post.find(params[:id])
+    # タグの情報
     tag_list = params[:post][:name].split(',')
     if @post.update(post_params)
+      # 元のタグをoldに入れる
+      @old_relations = PostTag.where(post_id: @post.id)
+      # それらを消す
+      @old_relations.each do |relation|
+        relation.delete
+      end
       @post.save_tag(tag_list)
-      redirect_to post_path(@post.id),notice: '投稿完了！'
+      redirect_to post_path(@post.id), notice: '更新完了！'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
