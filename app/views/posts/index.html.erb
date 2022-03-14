@@ -1,7 +1,7 @@
 <div class="row m-3">
   <%= render 'posts/sidebar', tag_list: @tag_list %>
   <div class="col-md-8">
-<h2>posts test</h2>
+<h2>投稿一覧</h2>
 
 <div class="text-right">
 <%= link_to '新着順', posts_path(latest: "true") %> |
@@ -14,7 +14,7 @@
       <%= post.body %><br>
       <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
       <div class="text-right text-secondary">
-      投稿日:<%= l post.created_at %>
+      <i class="fa-solid fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %>
       </div>
     </div>
   <% end %>

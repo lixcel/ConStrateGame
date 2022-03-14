@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :users, only:[:show, :index]
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create,:destroy]
+  end
 
   resources :tags do
     get 'posts', to: 'posts#search'
