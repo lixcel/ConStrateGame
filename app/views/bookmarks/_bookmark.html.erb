@@ -1,10 +1,10 @@
-<div class="right text-dark">
+<div class="right mr-2">
 <% if post.bookmarked_by?(current_user) %>
-  <%= link_to post_bookmarks_path(post), method: :delete, remote: :true do %>
+  <%= link_to post_bookmarks_path(post), method: :delete,class: "text-dark", remote: :true do %>
   <i class="fa-solid fa-bookmark"></i>
 <% end %>
 <% else %>
-  <%= link_to post_bookmarks_path(post), method: :post, remote: :true do %>
+  <%= link_to post_bookmarks_path(post), method: :post,class: "text-dark", remote: :true do %>
   <i class="fa-regular fa-bookmark"></i>
 <% end %>
 <% end %>

@@ -9,11 +9,17 @@
   <%= image_tag @post.image.show.url %><br>
   <% end %>
   <h2 class="mt-2 border-bottom"><%= @post.title %></h2>
-  
+
+<!--いいね-->
+  <div id="favorite_button_<%= @post.id %>">
+    <%= render "favorites/favorite", post: @post %>
+  </div>
+
+<!--ブックマーク-->
   <div id="bookmark_botton_<%= @post.id %>">
     <%= render "bookmarks/bookmark", post: @post %>
   </div><br>
-  
+
   <h5 class="text-dark"><%= @post.body %></h5><br>
   <% @post_tags.each do |tag| %>
     <i class="fas fa-tag"></i><%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>

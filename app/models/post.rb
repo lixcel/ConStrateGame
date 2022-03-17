@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # 並び替え用
   scope :latest, -> {order(updated_at: :desc)}
@@ -49,7 +50,12 @@ class Post < ApplicationRecord
     end
   end
 
-# 既にブックマークをしているかの確認
+  # いいねしているかの確認
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+  # 既にブックマークをしているかの確認
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
   end
