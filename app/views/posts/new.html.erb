@@ -1,5 +1,5 @@
 <div class="container mt-3 bg-light">
-  <div class="row">
+  <div class="">
     <%= form_with model: @post,url: posts_path, local: true do |f| %>
     <div class="form-group">
       <%= f.label :画像 %><br>
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <%= f.label :body %><br>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, size: "40x10" %>
     </div>
     <div class="form-group">
       <%= f.label :kind %><br>
