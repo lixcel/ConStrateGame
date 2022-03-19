@@ -1,21 +1,23 @@
 class Post < ApplicationRecord
 
-  belongs_to :user
   mount_uploader :image, ImageUploader
+
+  belongs_to :user
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
+  # 並び替え用
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :old, -> {order(updated_at: :asc)}
 
   enum kind:{
     攻略: 0,
     考察: 1,
   }
 
-  # 並び替え用
-  scope :latest, -> {order(updated_at: :desc)}
-  scope :old, -> {order(updated_at: :asc)}
-  
 
   def save_tag(sent_tags)
     # 元からあるタグならば、配列として取得
@@ -48,6 +50,14 @@ class Post < ApplicationRecord
     end
   end
 
+  # いいねしているかの確認
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
+  # 既にブックマークをしているかの確認
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user).exists?
+  end
 
 end

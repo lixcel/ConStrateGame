@@ -1,6 +1,6 @@
 <h1>編集</h1>
 <div class="container mt-3 bg-light">
-  <div class="row">
+  <div>
     <%= form_with model: @post,url: post_path(@post.id), local: true do |f| %>
     <div class="form-group">
       <%= f.label :画像 %><br>
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <%= f.label :body %><br>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, size: "40x10" %>
     </div>
     <div class="form-group">
       <%= f.label :kind %><br>

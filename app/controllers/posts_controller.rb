@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_tags = @post.tags
+    @tag_list = Tag.all
     @comment = Comment.new
   end
 

@@ -28,11 +28,11 @@
               </div>
             <div class="px-4">
               フォロー<br>
-              0
+              <%= current_user.followings.count %>
             </div>
             <div>
               フォロワー<br>
-              0
+              <%= current_user.followers.count %>
             </div>
 
             </div>
@@ -50,6 +50,7 @@
           </td>
         </tr>
         <% else %>
+
         <tr>
           <td class="p-3">
           <% if user.image? %>
@@ -71,11 +72,11 @@
               </div>
             <div class="px-4">
               フォロー<br>
-              0
+              <%= user.followings.count %>
             </div>
             <div>
               フォロワー<br>
-              0
+              <%= user.followers.count %>
             </div>
 
             </div>
@@ -85,6 +86,20 @@
         <tr>
           <td><%= user.introduction %></td>
         </tr>
+        <tr>
+          <td class="p3">
+            <% if current_user.following?(user) %>
+              <%= link_to user_relationships_path(user.id),class: "btn btn-dark text-decoration-none mt-3", method: :delete do %>
+              <div class="text-light"><i class="fa-regular fa-face-sad-tear"></i>フォローを外す</div>
+              <% end %>
+            <% else %>
+              <%= link_to user_relationships_path(user.id),class: "btn btn-dark text-decoration-none mt-3", method: :post do %>
+              <div class="text-light"><i class="fa-regular fa-face-grin-wink"></i>フォローする</div>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+
         <% end %>
         </tr>
       </tbody>
