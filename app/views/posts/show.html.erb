@@ -2,13 +2,12 @@
   <%= render 'posts/sidebar', tag_list: @tag_list %>
 
 <div class="col-md-7">
-<h1>投稿詳細</h1>
 
 <div>
+  <h2 class="m-2 border-bottom"><%= @post.title %></h2>
   <% if @post.image? %>
   <%= image_tag @post.image.show.url %><br>
   <% end %>
-  <h2 class="mt-2 border-bottom"><%= @post.title %></h2>
 
 <% if user_signed_in? %>
 <!--いいね-->

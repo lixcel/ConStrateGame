@@ -1,11 +1,45 @@
 <div class="container mt-5">
   <%= render "info", user: @user %>
 
-  <div class="row">
+
     <div class="col-md-8">
-      
+
+    <div>
+      <h3><%= @user.nickname %>の投稿</h3>
+      <% if @post.present? %>
+      <% @post.each do |post| %>
+      <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
+        <div class="border shadow mb-2 col-md-12 btn text-left">
+            <h5><%= post.title %></h5>
+            <span class="right text-secondary"><i class="fa-solid fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
+        <% end %>
+        </div>
+      <% end %>
+      <%= paginate @post %>
+      <% else %>
+        <span class="font-weight-bold">いいねした投稿はありません</span>
+      <% end %>
     </div>
 
-  </div>
+    <div class="mt-3">
+      <h3>いいねした投稿</h3>
+      <% if @favorite.present? %>
+      <% @favorite.each do |favorite| %>
+      <%= link_to post_path(favorite.post.id), class: "text-dark text-decoration-none" do %>
+        <div class="border shadow mb-2 col-md-12 btn text-left">
+            <h5><%= favorite.post.title %></h5>
+            <span class="right text-secondary"><i class="fa-solid fa-comment"></i><%= favorite.post.comments.count %> 投稿日:<%= l favorite.post.created_at %></span>
+        <% end %>
+        </div>
+      <% end %>
+      <%= paginate @favorite %>
+      <% else %>
+        <span class="font-weight-bold">いいねした投稿はありません</span>
+      <% end %>
+    </div>
+
+    </div>
+
+    <div></div>
 
 </div>
