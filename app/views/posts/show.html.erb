@@ -5,9 +5,18 @@
 
 <div>
   <h2 class="m-2 border-bottom"><%= @post.title %></h2>
+  <div class="text-right">
+    投稿者：
+    <%= link_to user_path(@post.user.id) do %>
+    <%= @post.user.nickname %>
+    <% end %>
+    <%= l @post.created_at %>
+  </div>
+  <div>
   <% if @post.image? %>
-  <%= image_tag @post.image.show.url %><br>
+  <%= image_tag @post.image.show.url %>
   <% end %>
+  </div>
 
 <% if user_signed_in? %>
 <!--いいね-->
