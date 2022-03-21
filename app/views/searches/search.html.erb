@@ -11,7 +11,7 @@
 <% if @range == "User" %>
   <% @users.each do |user| %>
   <%= link_to user_path(user.id), class: "text-dark text-decoration-none" do %>
-    <div class="border shadow mb-2 col-md-12 btn text-left">
+    <div class="border shadow mb-2 col-md-12 py-3">
       <%= user.nickname %>
     </div>
   <% end %>
@@ -20,7 +20,7 @@
 <% else %>
   <% @posts.each do |post| %>
   <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
-    <div class="border shadow mb-2 col-md-12 btn text-left">
+    <div class="border shadow mb-2 col-md-12">
       <h4><%= post.title %></h4>
       <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
       <div>
