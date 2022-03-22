@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post_tags = @post.tags
     @tag_list = Tag.all
     @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(4)
   end
 
   def new

@@ -12,8 +12,8 @@
         <div class="border shadow mb-2 col-md-12 btn text-start">
             <h5><%= post.title %></h5>
             <span class="right text-secondary"><i class="fa-solid fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
-        <% end %>
         </div>
+      <% end %>
       <% end %>
       <%= paginate @post %>
       <% else %>
@@ -29,8 +29,8 @@
         <div class="border shadow mb-2 col-md-12 btn text-start">
             <h5><%= favorite.post.title %></h5>
             <span class="right text-secondary"><i class="fa-solid fa-comment"></i><%= favorite.post.comments.count %> 投稿日:<%= l favorite.post.created_at %></span>
-        <% end %>
         </div>
+      <% end %>
       <% end %>
       <%= paginate @favorite %>
       <% else %>

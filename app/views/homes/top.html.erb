@@ -1,7 +1,21 @@
-<div class="p-5">
-  <div class="row">
+<div class="row m-3">
   <%= render 'posts/sidebar', tag_list: @tag_list %>
-  </div>
 
+<div class="col-md-7">
+  <h2>新着投稿</h2>
+
+  <% @posts.each do |post| %>
+  <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 text-left">
+      <h4><%= post.title %></h4>
+      <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+      <div>
+      <span class="right text-secondary"><i class="fa-solid fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
+      <span class="left text-danger mr-1"><i class="fa-solid fa-heart"></i></span><%= post.favorites.count %>
+      </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
 
 </div>

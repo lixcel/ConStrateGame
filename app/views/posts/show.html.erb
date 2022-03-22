@@ -1,15 +1,29 @@
 <div class="row m-3">
+
   <%= render 'posts/sidebar', tag_list: @tag_list %>
 
 <div class="col-md-7">
 
-<div>
-  <h2 class="m-2 border-bottom"><%= @post.title %></h2>
+<div class="bg-light">
+
+<h2 class="border-bottom"><%= @post.title %></h2>
+<div class="text-end">
+  <p>
+    投稿者： <%= link_to user_path(@post.user.id), class: "text-decoration-none" do %>
+      <%= @post.user.nickname %>
+    <% end %>
+  </p>
+</div>
+
+<div class="offset-md-2">
+
   <% if @post.image? %>
   <%= image_tag @post.image.show.url %><br>
   <% end %>
+</div>
 
 <% if user_signed_in? %>
+<div>
 <!--いいね-->
   <div id="favorite_button_<%= @post.id %>">
     <%= render "favorites/favorite", post: @post %>
@@ -18,7 +32,8 @@
 <!--ブックマーク-->
   <div id="bookmark_botton_<%= @post.id %>">
     <%= render "bookmarks/bookmark", post: @post %>
-  </div><br>
+  </div>
+</div><br>
 <% end %>
 
   <h5 class="text-dark"><%= simple_format(@post.body) %></h5><br>
@@ -26,9 +41,17 @@
     <i class="fas fa-tag"></i><%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
     <%= "(#{tag.posts.count})" %><br>
   <% end %>
+
+</div>
+  <%= render "comments/comment", post: @post, comments: @comments,comment: @comment %>
+
+
+</div>
+
+<div class="col-md-2">
   <% if user_signed_in? %>
   <% if @post.user_id == current_user.id %>
-  <div class="right">
+  <div>
   <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-secondary text-light" %>
   <%= link_to "削除する", post_path, method: :delete, class: "btn btn-secondary text-light", data: { confirm: '本当に削除しますか？' } %>
   </div>
@@ -36,40 +59,3 @@
   <% end %>
 </div>
 
-<div class="mt-5 border-top">
-  <p class="font-weight-bold">コメント件数:<%= @post.comments.count %>件</p>
-
-  <% if @post.comments.present? %>
-    <% @post.comments.each do |comment| %>
-  <div class="bg-light">
-    <%= link_to user_path(comment.user.id),class: "text-decoration-none" do %>
-      <p>
-        <span class="font-weight-bold text-success"><%= comment.user.nickname %></span>
-    <% end %>
-        <%= l comment.created_at %>
-        </p>
-      <p class="offset-md-1"><%= comment.comment_content %></p>
-      <% if comment.user == current_user %>
-        <div class="bg-light text-right">
-          <%= link_to "削除する", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-secondary text-light", data: { confirm: '本当に削除しますか？' } %>
-        </div>
-      <% end %>
-    <% end %>
-  <% else %>
-  <span class="font-weight-bold">コメントはありません</span>
-  <% end %>
-  </div>
-
- <% if user_signed_in? %>
-<div class="mt-3">
-  <%= form_with model: [@post, @comment], local: true do |f| %>
-    <%= f.text_area :comment_content, placeholder: "コメントをここに書いて議論を始めよう！" %>
-    <%= f.submit "送信" %>
-  <% end %>
-</div>
-<% end %>
-
-
-</div>
-</div>
-</div>
