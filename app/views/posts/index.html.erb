@@ -13,8 +13,8 @@
       <h4><%= post.title %></h4>
       <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
       <div>
-      <span class="right text-secondary"><i class="fa-solid fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
-      <span class="left text-danger mr-1"><i class="fa-solid fa-heart"></i></span><%= post.favorites.count %>
+      <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
+      <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= post.favorites.count %>
       </div>
   </div>
   <% end %>
