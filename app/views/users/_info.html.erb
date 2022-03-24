@@ -45,7 +45,7 @@
         <tr>
           <td>
             <%= link_to edit_user_registration_path,class: "btn btn-dark text-decoration-none mt-3" do %>
-            <div class="text-light"><i class="fa-solid fa-user-gear"></i>プロフィールの編集</div>
+            <div class="text-light"><i class="fas fa-user-cog"></i>プロフィールの編集</div>
             <% end %>
           </td>
         </tr>
@@ -90,11 +90,11 @@
           <td class="p3">
             <% if current_user.following?(user) %>
               <%= link_to user_relationships_path(user.id),class: "btn btn-dark text-decoration-none mt-3", method: :delete do %>
-              <div class="text-light"><i class="fa-regular fa-face-sad-tear"></i>フォローを外す</div>
+              <div class="text-light"><i class="far fa-sad-tear"></i>フォローを外す</div>
               <% end %>
             <% else %>
               <%= link_to user_relationships_path(user.id),class: "btn btn-dark text-decoration-none mt-3", method: :post do %>
-              <div class="text-light"><i class="fa-regular fa-face-grin-wink"></i>フォローする</div>
+              <div class="text-light"><i class="fas fa-grin-hearts"></i>フォローする</div>
               <% end %>
             <% end %>
           </td>
