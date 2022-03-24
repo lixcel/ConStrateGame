@@ -1,16 +1,17 @@
 <div class="col-md-2 mt-5">
 
-  <div class="text-center border fw-bold">
+  <%= render 'layouts/search' %>
+
+  <div class="text-center border fw-bold mt-5">
     タグ一覧
   </div>
   <% tag_list.each do |list| %>
   <% if list.posts.count > 0 %>
   <div>
-    <i class="fas fa-tag"></i><%= link_to list.name, tag_posts_path(tag_id: list.id) %>
+    <i class="fas fa-tag"></i><%= link_to list.name, tag_posts_path(tag_id: list.id),class: "text-dark" %>
     <%= "(#{list.posts.count})" %>
   </div>
   <% end %>
   <% end %>
-  <%= render 'layouts/search' %>
 
 </div>

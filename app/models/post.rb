@@ -8,10 +8,14 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
 
   # 並び替え用
   scope :latest, -> {order(updated_at: :desc)}
   scope :old, -> {order(updated_at: :asc)}
+
+  validates :title, length: { in: 1..20 }
+  validates :body, length: { in: 1..1000 }
 
   enum kind:{
     攻略: 0,

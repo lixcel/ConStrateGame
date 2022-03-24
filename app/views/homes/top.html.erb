@@ -2,6 +2,7 @@
   <%= render 'posts/sidebar', tag_list: @tag_list %>
 
 <div class="col-md-7">
+  <div>
   <h2>新着投稿</h2>
 
   <% @posts.each do |post| %>
@@ -16,6 +17,27 @@
   </div>
   <% end %>
   <% end %>
+  <%= link_to "投稿一覧へ>>",posts_path, class: "right text-dark" %>
+  </div>
+
+  <div>
+    <h2>人気の投稿</h2>
+
+  <% @posts_favorite.first(3).each do |post| %>
+  <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 text-left">
+      <h4><%= post.title %></h4>
+      <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+      <div>
+      <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
+      <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= post.favorites.count %>
+      </div>
+  </div>
+  <% end %>
+  <% end %>
+  <%= link_to "投稿一覧へ>>",posts_path, class: "right text-dark" %>
+  </div>
+
 </div>
 
 </div>

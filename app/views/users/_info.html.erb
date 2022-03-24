@@ -88,6 +88,7 @@
         </tr>
         <tr>
           <td class="p3">
+            <% if user_signed_in? %>
             <% if current_user.following?(user) %>
               <%= link_to user_relationships_path(user.id),class: "btn btn-dark text-decoration-none mt-3", method: :delete do %>
               <div class="text-light"><i class="far fa-sad-tear"></i>フォローを外す</div>
@@ -96,6 +97,7 @@
               <%= link_to user_relationships_path(user.id),class: "btn btn-dark text-decoration-none mt-3", method: :post do %>
               <div class="text-light"><i class="fas fa-grin-hearts"></i>フォローする</div>
               <% end %>
+            <% end %>
             <% end %>
           </td>
         </tr>
