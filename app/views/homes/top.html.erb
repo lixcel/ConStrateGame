@@ -3,7 +3,7 @@
 
 <div class="col-md-7">
   <div>
-  <h2>新着投稿</h2>
+  <h3>新着投稿</h3>
 
   <% @posts.each do |post| %>
   <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
@@ -20,8 +20,8 @@
   <%= link_to "投稿一覧へ>>",posts_path, class: "right text-dark" %>
   </div>
 
-  <div>
-    <h2>人気の投稿</h2>
+  <div class="mt-5">
+    <h3>人気の投稿</h3>
 
   <% @posts_favorite.first(3).each do |post| %>
   <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
