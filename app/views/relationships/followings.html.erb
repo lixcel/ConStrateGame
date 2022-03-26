@@ -1,2 +1,16 @@
-<h1>Relationships#followings</h1>
-<p>Find me in app/views/relationships/followings.html.erb</p>
+<div class="container mt-3">
+<h4>フォロー一覧</h4>
+<% if @user.exists? %>
+<% @user.each do |user| %>
+  <%= link_to user_path(user.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 py-3">
+      <%= user.nickname %>
+    </div>
+  <% end %>
+<% end %>
+
+<% else %>
+  <h4>フォローしているユーザーはいません</h4>
+
+<% end %>
+</div>

@@ -26,14 +26,20 @@
               投稿数<br>
               <%= current_user.posts.count %>
               </div>
+
+            <%= link_to user_followings_path(current_user), class: "text-dark" do %>
             <div class="px-4">
               フォロー<br>
               <%= current_user.followings.count %>
             </div>
+            <% end %>
+
+            <%= link_to user_followers_path(current_user), class: "text-dark" do %>
             <div>
               フォロワー<br>
               <%= current_user.followers.count %>
             </div>
+            <% end %>
 
             </div>
 
@@ -70,14 +76,19 @@
               投稿数<br>
               <%= user.posts.count %>
               </div>
+
+            <%= link_to user_followings_path(user), class: "text-dark" do %>
             <div class="px-4">
               フォロー<br>
               <%= user.followings.count %>
             </div>
+            <% end %>
+            <%= link_to user_followers_path(user), class: "text-dark" do %>
             <div>
               フォロワー<br>
               <%= user.followers.count %>
             </div>
+            <% end %>
 
             </div>
 

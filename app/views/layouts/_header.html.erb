@@ -1,4 +1,4 @@
-<header class="border">
+<header class="bg-secondary">
   <nav class="navbar">
     <div class="ml-5">
       <div>
@@ -14,25 +14,25 @@
         <!--ログインしている時-->
 
         <div class="btn">
-          <%= link_to posts_path, class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to posts_path, class: "nav-link text-light text-decoration-none" do %>
           <i class="fas fa-clipboard"></i>投稿一覧
           <% end %>
         </div>
 
         <div class="btn">
-          <%= link_to new_post_path, class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to new_post_path, class: "nav-link text-light text-decoration-none" do %>
           <i class="fas fa-edit"></i>投稿する
           <% end %>
         </div>
 
         <div class="btn">
-          <%= link_to user_path(current_user), class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to user_path(current_user), class: "nav-link text-light text-decoration-none" do %>
           <i class="fas fa-portrait"></i>マイページ
           <% end %>
          </div>
 
         <div class="btn">
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light text-decoration-none" do %>
           <i class="fas fa-chess-queen"></i>ログアウト
           <% end %>
         </div>
@@ -41,18 +41,18 @@
         <!--ログインしていない時-->
 
         <div class="btn">
-          <%= link_to posts_path, class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to posts_path, class: "nav-link text-light text-decoration-none" do %>
           <i class="far fa-clipboard"></i>投稿一覧
           <% end %>
         </div>
 
         <div class="btn">
-          <%= link_to new_user_session_path,class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to new_user_session_path,class: "nav-link text-light text-decoration-none" do %>
           <i class="fas fa-chair"></i>ログイン
           <% end %>
         </div>
         <div class="btn">
-          <%= link_to new_user_registration_path,class: "nav-link text-dark text-decoration-none" do %>
+          <%= link_to new_user_registration_path,class: "nav-link text-light text-decoration-none" do %>
           <i class="fas fa-battery-empty"></i>会員登録
           <% end %>
         </div>
