@@ -1,0 +1,25 @@
+<div class="row m-3">
+  <%= render 'posts/sidebar', tag_list: @tag_list %>
+  <div class="col-md-8">
+<h2>ブックマーク一覧</h2>
+
+<div>
+</div>
+  <% @bookmark.each do |bookmark| %>
+  <%= link_to post_path(bookmark.post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 text-left">
+      <h4><%= bookmark.post.title %></h4>
+      <i class="fas fa-tag"></i><%= bookmark.post.tags.map(&:name).join(',') %>
+      <div>
+      <span class="right text-secondary"><i class="fas fa-comment"></i><%= bookmark.post.comments.count %> 投稿日:<%= l bookmark.post.created_at %></span>
+      <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= bookmark.post.favorites.count %>
+      </div>
+  </div>
+  <% end %>
+  <% end %>
+
+  <%= paginate @bookmark %>
+
+</div>
+
+</div>

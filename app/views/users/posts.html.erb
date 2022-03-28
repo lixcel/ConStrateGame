@@ -1,0 +1,25 @@
+<div class="row m-3">
+  <%= render 'posts/sidebar', tag_list: @tag_list %>
+  <div class="col-md-8">
+<h2><%= @user.nickname %>の投稿一覧</h2>
+
+<div>
+</div>
+  <% @posts.each do |user_post| %>
+  <%= link_to post_path(user_post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 text-left">
+      <h4><%= user_post.title %></h4>
+      <i class="fas fa-tag"></i><%= user_post.tags.map(&:name).join(',') %>
+      <div>
+      <span class="right text-secondary"><i class="fas fa-comment"></i><%= user_post.comments.count %> 投稿日:<%= l user_post.created_at %></span>
+      <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= user_post.favorites.count %>
+      </div>
+  </div>
+  <% end %>
+  <% end %>
+
+  <%= paginate @posts %>
+
+</div>
+
+</div>

@@ -15,9 +15,9 @@
         </div>
       <% end %>
       <% end %>
-      <%= paginate @post %>
+        <%= link_to '一覧を見る>>', posts_user_path(@user), class: "text-dark right" %>
       <% else %>
-        <span class="font-weight-bold">いいねした投稿はありません</span>
+        <span class="font-weight-bold">投稿はありません</span>
       <% end %>
     </div>
 
@@ -32,14 +32,30 @@
         </div>
       <% end %>
       <% end %>
-      <%= paginate @favorite %>
+        <%= link_to '一覧を見る>>', likes_user_path(@user), class: "text-dark right" %>
       <% else %>
         <span class="font-weight-bold">いいねした投稿はありません</span>
       <% end %>
     </div>
 
+    <div class="mt-3">
+      <h3>ブックマーク</h3>
+      <% if @bookmark.present? %>
+      <% @bookmark.each do |bookmark| %>
+      <%= link_to post_path(bookmark.post.id), class: "text-dark text-decoration-none" do %>
+        <div class="border shadow mb-2 col-md-12 btn text-start">
+            <h5><%= bookmark.post.title %></h5>
+            <span class="right text-secondary"><i class="fas fa-comment"></i><%= bookmark.post.comments.count %> 投稿日:<%= l bookmark.post.created_at %></span>
+        </div>
+      <% end %>
+      <% end %>
+        <%= link_to '一覧を見る>>', bookmarks_user_path(@user), class: "text-dark right" %>
+      <% else %>
+        <span class="font-weight-bold">ブックマークはありません</span>
+      <% end %>
     </div>
 
-    <div></div>
+    </div>
+
 
 </div>

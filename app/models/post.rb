@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   scope :latest, -> {order(updated_at: :desc)}
   scope :old, -> {order(updated_at: :asc)}
 
-  validates :title, length: { in: 1..20 }
+  validates :title, length: { in: 1..30 }
   validates :body, length: { in: 1..1000 }
 
   enum kind:{

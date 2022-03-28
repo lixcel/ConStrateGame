@@ -1,0 +1,25 @@
+<div class="row m-3">
+  <%= render 'posts/sidebar', tag_list: @tag_list %>
+  <div class="col-md-8">
+<h2>いいねした投稿一覧</h2>
+
+<div>
+</div>
+  <% @favorite.each do |favorite| %>
+  <%= link_to post_path(favorite.post.id), class: "text-dark text-decoration-none" do %>
+    <div class="border shadow mb-2 col-md-12 text-left">
+      <h4><%= favorite.post.title %></h4>
+      <i class="fas fa-tag"></i><%= favorite.post.tags.map(&:name).join(',') %>
+      <div>
+      <span class="right text-secondary"><i class="fas fa-comment"></i><%= favorite.post.comments.count %> 投稿日:<%= l favorite.post.created_at %></span>
+      <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= favorite.post.favorites.count %>
+      </div>
+  </div>
+  <% end %>
+  <% end %>
+
+  <%= paginate @favorite %>
+
+</div>
+
+</div>
