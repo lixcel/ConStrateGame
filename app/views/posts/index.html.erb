@@ -4,18 +4,20 @@
 <h2>投稿一覧</h2>
 
 <div class="text-end">
-<%= link_to '新着順', posts_path(latest: "true") %> |
-<%= link_to '古い順', posts_path(old: "true") %>
+<%= link_to '新着順', posts_path(latest: "true"), class: "text-dark" %> |
+<%= link_to '古い順', posts_path(old: "true"), class: "text-dark" %> |
+<%= link_to 'PV数の多い順', posts_path(pv: "true"), class: "text-dark" %>
 </div>
   <% @posts.each do |post| %>
   <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
     <div class="border shadow mb-2 col-md-12 text-left">
       <h4><%= post.title %></h4>
       <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
-      <div>
+    <div>
       <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
       <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= post.favorites.count %>
-      </div>
+      <span class="text-secondary"><i class="fas fa-eye"></i></span><%= post.impressions_count %>
+    </div>
   </div>
   <% end %>
   <% end %>
