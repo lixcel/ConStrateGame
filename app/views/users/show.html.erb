@@ -10,8 +10,13 @@
       <% @post.each do |post| %>
       <%= link_to post_path(post.id), class: "text-dark text-decoration-none" do %>
         <div class="border shadow mb-2 col-md-12 btn text-start">
-            <h5><%= post.title %></h5>
-            <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
+          <h5><%= post.title %></h5>
+          <i class="fas fa-tag"></i><%= post.tags.map(&:name).join(',') %>
+        <div>
+          <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
+          <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= post.favorites.count %>
+          <span class="text-secondary"><i class="fas fa-eye"></i></span><%= post.impressions_count %>
+        </div>
         </div>
       <% end %>
       <% end %>
@@ -27,8 +32,13 @@
       <% @favorite.each do |favorite| %>
       <%= link_to post_path(favorite.post.id), class: "text-dark text-decoration-none" do %>
         <div class="border shadow mb-2 col-md-12 btn text-start">
-            <h5><%= favorite.post.title %></h5>
-            <span class="right text-secondary"><i class="fas fa-comment"></i><%= favorite.post.comments.count %> 投稿日:<%= l favorite.post.created_at %></span>
+          <h5><%= favorite.post.title %></h5>
+          <i class="fas fa-tag"></i><%= favorite.post.tags.map(&:name).join(',') %>
+        <div>
+          <span class="right text-secondary"><i class="fas fa-comment"></i><%= favorite.post.comments.count %> 投稿日:<%= l favorite.post.created_at %></span>
+          <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= favorite.post.favorites.count %>
+          <span class="text-secondary"><i class="fas fa-eye"></i></span><%= favorite.post.impressions_count %>
+        </div>
         </div>
       <% end %>
       <% end %>
@@ -44,8 +54,13 @@
       <% @bookmark.each do |bookmark| %>
       <%= link_to post_path(bookmark.post.id), class: "text-dark text-decoration-none" do %>
         <div class="border shadow mb-2 col-md-12 btn text-start">
-            <h5><%= bookmark.post.title %></h5>
-            <span class="right text-secondary"><i class="fas fa-comment"></i><%= bookmark.post.comments.count %> 投稿日:<%= l bookmark.post.created_at %></span>
+          <h5><%= bookmark.post.title %></h5>
+          <i class="fas fa-tag"></i><%= bookmark.post.tags.map(&:name).join(',') %>
+        <div>
+          <span class="right text-secondary"><i class="fas fa-comment"></i><%= bookmark.post.comments.count %> 投稿日:<%= l bookmark.post.created_at %></span>
+          <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= bookmark.post.favorites.count %>
+          <span class="text-secondary"><i class="fas fa-eye"></i></span><%= bookmark.post.impressions_count %>
+        </div>
         </div>
       <% end %>
       <% end %>
