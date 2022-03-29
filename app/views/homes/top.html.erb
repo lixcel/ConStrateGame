@@ -1,7 +1,7 @@
 <div class="row m-3">
   <%= render 'posts/sidebar', tag_list: @tag_list %>
 
-<div class="col-md-7">
+<div class="col-md-8">
   <div>
   <h3>新着投稿</h3>
 
@@ -13,6 +13,7 @@
       <div>
       <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
       <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= post.favorites.count %>
+      <span class="text-secondary"><i class="fas fa-eye"></i></span><%= post.impressions_count %>
       </div>
   </div>
   <% end %>
@@ -31,6 +32,7 @@
       <div>
       <span class="right text-secondary"><i class="fas fa-comment"></i><%= post.comments.count %> 投稿日:<%= l post.created_at %></span>
       <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= post.favorites.count %>
+      <span class="text-secondary"><i class="fas fa-eye"></i></span><%= post.impressions_count %>
       </div>
   </div>
   <% end %>

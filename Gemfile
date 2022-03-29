@@ -71,6 +71,9 @@ gem 'devise-i18n'
 # 画像投稿用
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
+# PV数計測
+gem 'impressionist'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

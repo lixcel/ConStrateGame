@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def search
     @tag_list = Tag.all
@@ -11,6 +12,8 @@ class PostsController < ApplicationController
       @posts = Post.latest.page(params[:page]).per(10)
     elsif params[:old]
       @posts = Post.old.page(params[:page]).per(10)
+    elsif params[:pv]
+      @posts = Post.pv.page(params[:page]).per(10)
     else
       @posts = Post.page(params[:page]).per(10)
     end

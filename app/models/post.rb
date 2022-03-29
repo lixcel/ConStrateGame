@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
 
+  # 画像アップロード用
   mount_uploader :image, ImageUploader
+  # PV数計測用
+  is_impressionable counter_cache: true
 
   belongs_to :user
   has_many :post_tags, dependent: :destroy
@@ -13,6 +16,7 @@ class Post < ApplicationRecord
   # 並び替え用
   scope :latest, -> {order(updated_at: :desc)}
   scope :old, -> {order(updated_at: :asc)}
+  scope :pv, -> {order(impressions_count: :desc)}
 
   validates :title, length: { in: 1..30 }
   validates :body, length: { in: 1..1000 }
