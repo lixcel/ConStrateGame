@@ -13,6 +13,7 @@
       <div>
       <span class="right text-secondary"><i class="fas fa-comment"></i><%= favorite.post.comments.count %> 投稿日:<%= l favorite.post.created_at %></span>
       <span class="left text-danger mr-1"><i class="fas fa-heart"></i></span><%= favorite.post.favorites.count %>
+      <span class="text-secondary"><i class="fas fa-eye"></i></span><%= favorite.post.impressions_count %>
       </div>
   </div>
   <% end %>

@@ -9,7 +9,7 @@
 <h2 class="border-bottom text-dark"><%= @post.title %></h2>
 <div class="text-end">
   <p>
-    投稿者： <%= link_to user_path(@post.user.id), class: "text-decoration-none" do %>
+    投稿者： <%= link_to user_path(@post.user.id), class: "text-dark" do %>
       <%= @post.user.nickname %>
     <% end %>
   </p>
