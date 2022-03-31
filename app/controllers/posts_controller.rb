@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new]
   impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def search
