@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :new]
+  before_action :baria_user, only: [:edit, :update]
   impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def search
@@ -83,6 +84,12 @@ class PostsController < ApplicationController
 
   def sort_params
     params.permit(:sort)
+  end
+
+  def baria_user
+    @post = Post.find(params[:id])
+    @user = @post.user
+    redirect_to(posts_path) unless @user == current_user
   end
 
 end

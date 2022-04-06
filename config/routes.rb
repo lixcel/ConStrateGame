@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
+  get 'about' => 'homes#about'
+
   resources :users, only:[:show] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
