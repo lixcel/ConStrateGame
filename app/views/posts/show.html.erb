@@ -8,11 +8,14 @@
 
 <h2 class="border-bottom text-dark"><%= @post.title %></h2>
 <div class="text-end">
-  <p>
+  <div>
     投稿者： <%= link_to user_path(@post.user.id), class: "text-dark" do %>
       <%= @post.user.nickname %>
     <% end %>
-  </p>
+  </div>
+  <div class="mb-2">
+    投稿日時： <%= @post.created_at.strftime("%Y/%m/%d %H:%M") %>
+  </div>
 </div>
 
 <div class="offset-md-1">
