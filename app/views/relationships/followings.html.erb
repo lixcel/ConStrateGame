@@ -1,7 +1,7 @@
 <div class="container mt-3">
-<h4>フォロー一覧</h4>
-<% if @user.exists? %>
-<% @user.each do |user| %>
+<h4><%= @user.nickname %>さんのフォロー一覧</h4>
+<% if @users.exists? %>
+<% @users.each do |user| %>
   <%= link_to user_path(user.id), class: "text-dark text-decoration-none" do %>
     <div class="border shadow mb-2 col-md-12 py-3">
       <%= user.nickname %>
